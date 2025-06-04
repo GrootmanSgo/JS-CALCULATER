@@ -7,7 +7,27 @@ let justCalculated = false;
 function appendToDisplay(value) {
     console.log('Button pressed:',value);
 
-    alert('You pressed:' +value);
+    let currentValue = display.value;
+
+    if(justCalculated && !isNaN(value)) {
+     display.value = value;
+     justCalculated = false;
+     return;
+    }
+
+    //if vurrent display show 0 and user enters a number, we wanna replace the 0
+     if(currentValue === "0" && !isNaN(value)){
+        display.value = value;
+     }else if(currentValue === '0' && value=== '.'){
+        display.value = currentValue + value;
+     }else{
+        display.value = currentValue + value;
+     }
+
+    // Reset the justCalculated flag when user strts typing
+     justCalculated = false;
+
+     console.log('Display updated to:', display.value);
 }
 
 function clearDisplay() {
@@ -18,6 +38,11 @@ function clearDisplay() {
 
 function deletedLast() {
     console.log('Backspace button pressed')
+
+    let currentValue = display.value;
+
+    // IF 
+    if(currentValue.length)
 
     alert('Backspace button was pressed')
 }

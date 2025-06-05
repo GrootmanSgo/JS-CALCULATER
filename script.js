@@ -61,7 +61,7 @@ function deletedLast() {
     }else{
         display.value = currentValue.slice(0,-1);
     }
-
+  
     
 }
 
